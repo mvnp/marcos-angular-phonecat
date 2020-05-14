@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-5">
+        <img ng-src="{{ $ctrl.mainImageUrl }}" class="phone" />
+        <div class="col-md-12">
+            <div class="row">
+                <ul class="row phone-thumbs">
+                    <li class="col-md-3" ng-repeat="img in $ctrl.phone.images">
+                        <img ng-dblclick="$ctrl.onDblclick(img)" ng-src="{{ img }}" ng-click="$ctrl.setImage(img)" alt="$ctrl.phone.name" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <h1>{{ $ctrl.phone.name | uppercase }}</h1>
+        <hr /><p>{{ $ctrl.phone.description }}</p>
+    </div>
+</div>
+<hr />
+<ul class="specs">
+    <h3>Description</h3>
+    <li>
+        <span>Availability and Networks</span>
+        <dl>
+            <dt>Availability</dt>
+            <dd ng-repeat="availability in $ctrl.phone.availability">{{ availability }}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Additional Features</span>
+        <dl>
+            <dt>Features</dt>
+            <dd>{{ $ctrl.phone.additionalFeatures }}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Connections</span>
+        <dl>
+            <dt>Infrared {{ $ctrl.phone.connectivity.infrared | checkmark }}</dt>
+            <dt>GPS {{ $ctrl.phone.connectivity.gps | checkmark }}</dt>
+        </dl>
+    </li>
+</ul>

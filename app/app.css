@@ -1,0 +1,16 @@
+.search {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.thumbnail {
+    padding: unset;
+    border: 0px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    min-height: 405px;
+}
+.phone-thumbs {
+    list-style: none;
+}
+.phone-thumbs li img {
+    max-width: 100%;
+}

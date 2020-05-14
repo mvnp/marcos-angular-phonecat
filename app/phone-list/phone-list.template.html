@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-12 search">
+        <!-- Sidebar content -->
+        <label for="search">Buscar ...</label>
+        <input name="search" type="text" class="form-control" ng-model="$ctrl.query">
+    </div>
+    <div class="col-md-12 search">
+        <!-- Sort by -->
+        <label for="sortby">Ordenar ...</label>
+        <select name="orderby" ng-model="$ctrl.orderProp" class="form-control">
+            <option value="name">Alphabetical</option>
+            <option value="age">Newest</option>
+            <option value="-age">Oldest</option>
+        </select>
+    </div>
+    <div class="col-md-12">
+        <ul class="phones" ng-style="{ 'padding-left': 0 }">
+            <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="col-md-3 thumbnail">
+                <div class="product">
+                    <a href="#!/phones/{{ phone.id }}" class="thumb">
+                        <img ng-src="{{ phone.imageUrl }}" alt="{{ phone.name }}" />
+                    </a>
+                    <a href="#!/phones/{{ phone.id }}">
+                        <span>{{ phone.name }}</span>
+                    </a>
+                    <p>{{ phone.snippet }}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<pre>{{ $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp | json }}</pre>
